@@ -1,0 +1,56 @@
+.paper-form {
+  color: #000;
+  padding: 16px;
+  background: #fff;
+  font-size: 15px;
+}
+.paper-form .ant-form-item {
+  margin-bottom: 0;
+}
+.paper-form .ant-input, 
+.paper-form .ant-select-selector, 
+.paper-form .ant-picker {
+  border: none !important;
+  border-bottom: 1px dotted #000 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 4px !important;
+  font-size: 15px;
+  font-family: inherit;
+}
+.paper-form .ant-input:focus,
+.paper-form .ant-select-focused .ant-select-selector,
+.paper-form .ant-picker-focused {
+  border-bottom: 1px solid #1890ff !important;
+}
+.paper-form .ant-select-selection-item {
+  font-family: inherit;
+}
+
+.paper-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+.paper-table th, .paper-table td {
+  border: 1px solid #000;
+  padding: 4px;
+  text-align: center;
+}
+.paper-table th {
+  font-weight: bold;
+}
+.paper-table .ant-input,
+.paper-table .ant-input-number {
+  border-bottom: none !important;
+  text-align: center;
+  background: transparent !important;
+}
+.paper-table .ant-input-number-input {
+  text-align: center;
+}
+.paper-table .ant-input-number-handler-wrap {
+  display: none !important;
+}

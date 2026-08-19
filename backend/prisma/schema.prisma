@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model ReceiptType {
+  id          String    @id @default(uuid())
+  code        String    @unique @map("code")
+  name        String    @map("name")
+  description String?   @map("description")
+  
+  receipts    Receipt[]
+
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("receipt_types")
+}
+
+model Receipt {
+  id                String        @id @default(uuid())
+  companyName       String        @map("company_name")
+  departmentName    String        @map("department_name")
+  createdDate       DateTime      @default(now()) @map("created_date")
+  serial            String        @map("serial")
+  debit             String        @map("debit")
+  credit            String        @map("credit")
+  deliverName       String        @map("deliver_name")
+  receiptTypeId     String        @map("receipt_type_id")
+  receiptType       ReceiptType   @relation(fields: [receiptTypeId], references: [id])
+  sourceReceiptDate DateTime      @map("source_receipt_date")
+  receiptIssuer     String        @map("receipt_issuer")
+  warehouse         String        @map("warehouse")
+  location          String        @map("location")
+  attachDocument    String?       @map("attach_document")
+  totalInText       String        @map("total_in_text")
+  
+  receiptItems      ReceiptItem[]
+
+  createdAt         DateTime      @default(now()) @map("created_at")
+  updatedAt         DateTime      @updatedAt @map("updated_at")
+
+  @@index([receiptTypeId])
+  @@index([serial])
+  @@index([createdDate])
+  @@map("receipts")
+}
+
+model ReceiptItem {
+  id                 String   @id @default(uuid())
+  receiptId          String   @map("receipt_id")
+  item               String   @map("item")
+  code               String   @map("code")
+  unit               String   @map("unit")
+  quantityByReceipt  Float    @map("quantity_by_receipt")
+  quantityByReality  Float    @map("quantity_by_reality")
+  unitPrice          Float    @map("unit_price")
+  total              Float    @map("total")
+
+  receipt            Receipt  @relation(fields: [receiptId], references: [id], onDelete: Cascade)
+
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+
+  @@index([receiptId])
+  @@index([code])
+  @@map("receipt_items")
+}
