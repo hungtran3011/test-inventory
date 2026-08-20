@@ -97,7 +97,7 @@ export function ConfigReceiptType() {
 
   return (
     <Card 
-      title="Cấu hình loại phiếu nhập" 
+      title="Cấu hình chứng từ nhập" 
       extra={<Button type="primary" icon={<PlusOutlined />} onClick={() => handleOpenModal()}>Thêm mới</Button>}
       bordered={false}
     >

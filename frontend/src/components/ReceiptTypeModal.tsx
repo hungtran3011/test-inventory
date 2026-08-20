@@ -53,17 +53,17 @@ export function ReceiptTypeModal({ open, onClose, onSuccess, initialValues }: Pr
 
   return (
     <Modal
-      title={initialValues?.id ? "Sửa loại phiếu" : "Thêm mới loại phiếu"}
+      title={initialValues?.id ? "Sửa loại chứng từ" : "Thêm mới loại chứng từ"}
       open={open}
       onOk={handleSave}
       onCancel={onClose}
       confirmLoading={loading}
     >
       <Form form={form} layout="vertical">
-        <Form.Item name="code" label="Mã loại phiếu" rules={[{ required: true, message: 'Vui lòng nhập mã' }]}>
+        <Form.Item name="code" label="Mã loại chứng từ" rules={[{ required: true, message: 'Vui lòng nhập mã' }]}>
           <Input />
         </Form.Item>
-        <Form.Item name="name" label="Tên loại phiếu" rules={[{ required: true, message: 'Vui lòng nhập tên' }]}>
+        <Form.Item name="name" label="Tên loại chứng từ" rules={[{ required: true, message: 'Vui lòng nhập tên' }]}>
           <Input />
         </Form.Item>
         <Form.Item name="description" label="Mô tả">

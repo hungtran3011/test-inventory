@@ -85,7 +85,6 @@ export function ReceiptList() {
   const columns: ColumnsType<ReceiptResponseDto> = [
     { title: "Số chứng từ", dataIndex: "serial", key: "serial" },
     { title: "Ngày lập", dataIndex: "createdDate", key: "createdDate", render: (date) => date ? dayjs(date).format("DD/MM/YYYY") : "" },
-    { title: "Loại phiếu", key: "receiptType", render: (_, record) => record.receiptType?.name || record.receiptTypeId },
     { title: "Kho", dataIndex: "warehouse", key: "warehouse" },
     { title: "Người giao", dataIndex: "deliverName", key: "deliverName" },
     { title: "Tổng tiền", dataIndex: "totalInText", key: "totalInText" },

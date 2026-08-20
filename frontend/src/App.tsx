@@ -28,7 +28,7 @@ function App() {
             {
               key: "configReceiptType",
               icon: <SettingOutlined />,
-              label: "Cấu hình loại phiếu nhập"
+              label: "Cấu hình loại chứng từ nhập"
             }
           ]}
         />
